@@ -1,0 +1,24 @@
+{
+  "name": "poros",
+  "version": "1.0.0",
+  "description": "An interactive maze generation and pathfinding visualizer — find the way through.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "maze",
+    "pathfinding",
+    "astar",
+    "dijkstra",
+    "bfs",
+    "visualization",
+    "canvas"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>poros · maze & pathfinding visualizer</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🧭</text></svg>" />
+</head>
+<body>
+  <header>
+    <h1>poros<span class="sub">— find the way through</span></h1>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="group">
+        <label>Maze
+          <select id="generator">
+            <option value="backtracker">Recursive backtracker</option>
+            <option value="prim">Randomized Prim's</option>
+          </select>
+        </label>
+        <label>Seed
+          <input id="seed" type="number" min="0" value="42" />
+        </label>
+        <button id="generate">Generate</button>
+      </div>
+
+      <div class="group">
+        <label>Search
+          <select id="finder">
+            <option value="astar">A*</option>
+            <option value="dijkstra">Dijkstra</option>
+            <option value="bfs">Breadth-first</option>
+            <option value="dfs">Depth-first</option>
+          </select>
+        </label>
+        <button id="solve" class="primary">Solve</button>
+        <button id="clear">Clear path</button>
+      </div>
+
+      <div class="group">
+        <label>Size
+          <input id="size" type="range" min="8" max="45" value="25" />
+          <span id="sizeval">25</span>
+        </label>
+        <label>Speed
+          <input id="speed" type="range" min="1" max="100" value="60" />
+        </label>
+      </div>
+    </section>
+
+    <div class="canvas-wrap">
+      <canvas id="board" width="700" height="700"></canvas>
+    </div>
+
+    <section class="legend">
+      <span><i class="sw start"></i> start</span>
+      <span><i class="sw goal"></i> goal</span>
+      <span><i class="sw frontier"></i> frontier</span>
+      <span><i class="sw visited"></i> visited</span>
+      <span><i class="sw path"></i> path</span>
+      <span id="stats" class="stats"></span>
+    </section>
+
+    <p class="hint">
+      Drag on the grid to draw or erase walls. Click <b>Generate</b> for a fresh
+      maze, then <b>Solve</b> to watch the search explore.
+    </p>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
